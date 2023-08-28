@@ -5,6 +5,7 @@ import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 import { BrowserRouter } from 'react-router-dom'
 import { SecondaryButton } from './components/SecondaryButton'
+import { AddToCartButton } from './components/AddToCartButton'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <PrimaryButton />
         <SecondaryButton />
+        <AddToCartButton />
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>
