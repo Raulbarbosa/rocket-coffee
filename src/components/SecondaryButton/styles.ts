@@ -20,11 +20,16 @@ export const SecondaryButtonContainer = styled.button`
   font-weight: ${(props) => props.theme.fonts.roboto['button-m'].fontWeight};
   line-height: ${(props) => props.theme.fonts.roboto['button-m'].lineHeight};
 
-  &::before {
-    content: '';
-    /* color: ${props => props.theme.colors['purple']} */
-    background: red;
+  svg {
+     color: ${props => props.theme.colors['purple']};
   }
 
+  &:hover {
+    background: ${props => props.theme.colors['base-hover']};
+
+    svg {
+      color: ${props => props.theme.colors['purple-dark']};
+    }
+  }
 
 `
