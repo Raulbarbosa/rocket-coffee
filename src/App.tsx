@@ -6,6 +6,7 @@ import { defaultTheme } from './styles/themes/default'
 import { BrowserRouter } from 'react-router-dom'
 import { SecondaryButton } from './components/SecondaryButton'
 import { AddToCartButton } from './components/AddToCartButton'
+import { StatusCart } from './components/StatusCart'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <PrimaryButton />
         <SecondaryButton />
         <AddToCartButton />
+        <StatusCart />
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>
