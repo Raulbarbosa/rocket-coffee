@@ -8,6 +8,7 @@ import { SecondaryButton } from './components/SecondaryButton'
 import { AddToCartButton } from './components/AddToCartButton'
 import { StatusCart } from './components/StatusCart'
 import { AmountInput } from './components/AmountInput'
+import { CoffeeCard } from './components/CoffeeCard'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <AddToCartButton />
         <StatusCart />
         <AmountInput />
+        <CoffeeCard />
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>
