@@ -1,6 +1,6 @@
 export const defaultTheme = {
   colors: {
-    'yellow': '##DBAC2C',
+    'yellow': '#DBAC2C',
     'yellow-dark': '#C47F17',
     'yellow-light': '#F1E9C9',
 
@@ -24,68 +24,68 @@ export const defaultTheme = {
   fonts: {
     ballo2: {
       'title-xl': {
-        size: '48px',
+        fontSize: '48px',
         lineHeight: '130%',
-        wheight: 'extraBold'
+        fontWeight: 'extraBold'
       },
       'title-l': {
-        size: '32px',
+        fontSize: '32px',
         lineHeight: '130%',
-        wheight: 'extraBold'
+        fontWeight: 'extraBold'
       },
       'title-m': {
-        size: '24px',
+        fontSize: '24px',
         lineHeight: '130%',
-        wheight: 'extraBold'
+        fontWeight: 'extraBold'
       },
       'title-s': {
-        size: '20px',
+        fontSize: '20px',
         lineHeight: '130%',
-        wheight: 'bold'
+        fontWeight: 'bold'
       },
       'title-xs': {
-        size: '18px',
+        fontSize: '18px',
         lineHeight: '130%',
-        wheight: 'bold'
+        fontWeight: 'bold'
       }
 
     },
 
     roboto: {
       'text-l': {
-        size: '20px',
+        fontSize: '20px',
         lineHeight: '130%',
-        wheight: 'regular'
+        fontWeight: 'regular'
       },
       'text-m': {
-        size: '16px',
+        fontSize: '16px',
         lineHeight: '130%',
-        wheight: 'regular'
+        fontWeight: 'regular'
       },
       'text-s': {
-        size: '14px',
+        fontSize: '14px',
         lineHeight: '130%',
-        wheight: 'regular'
+        fontWeight: 'regular'
       },
       'text-xs': {
-        size: '12px',
+        fontSize: '12px',
         lineHeight: '130%',
-        wheight: 'bold'
+        fontWeight: 'bold'
       },
       'tag': {
-        size: '10px',
+        fontSize: '10px',
         lineHeight: '130%',
-        wheight: 'bold'
+        fontWeight: 'bold'
       },
       'button-g': {
-        size: '14px',
+        fontSize: '14px',
         lineHeight: '160%',
-        wheight: 'bold'
+        fontWeight: 'bold'
       },
       'button-m': {
-        size: '12px',
+        fontSize: '12px',
         lineHeight: '160%',
-        wheight: 'regular'
+        fontWeight: 'regular'
       },
     }
   }
