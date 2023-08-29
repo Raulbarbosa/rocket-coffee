@@ -15,6 +15,10 @@ export const StatusCartContainer = styled.div`
 
   background: ${props => props.theme.colors['yellow-light']};
 
+  &:hover {
+    cursor: pointer;
+  }
+
 `
 
 export const AmountIntoCart = styled.div`

@@ -21,9 +21,11 @@ export const AmountInputContainer = styled.div`
 
   svg.Plus:hover {
     color: ${props => props.theme.colors['purple-dark']};
+    cursor: pointer;
   }
 
   svg.Minus:hover {
     color: ${props => props.theme.colors['purple-dark']};
+    cursor: pointer;
   }
 `

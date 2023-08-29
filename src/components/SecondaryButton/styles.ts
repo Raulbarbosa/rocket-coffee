@@ -26,6 +26,7 @@ export const SecondaryButtonContainer = styled.button`
 
   &:hover {
     background: ${props => props.theme.colors['base-hover']};
+    cursor: pointer;
 
     svg {
       color: ${props => props.theme.colors['purple-dark']};
