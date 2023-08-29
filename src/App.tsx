@@ -10,6 +10,7 @@ import { StatusCart } from './components/StatusCart'
 import { AmountInput } from './components/AmountInput'
 import { CoffeeCard } from './components/CoffeeCard'
 import { CoffeeAltCard } from './components/CoffeeAltCard'
+import { InputText } from './components/InputText'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <AmountInput />
         <CoffeeCard />
         <CoffeeAltCard />
+        <InputText />
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>
