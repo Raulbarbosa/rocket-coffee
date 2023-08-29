@@ -11,5 +11,6 @@ export const AddToCartButtonContainer = styled.button`
 
   &:hover {
     background: ${props => props.theme.colors['purple']};
+    cursor: pointer;
   }
 `
