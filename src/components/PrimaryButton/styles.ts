@@ -5,7 +5,11 @@ export const PrimaryButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: 132px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  min-width: 13.2rem;
   padding: 12px 8px;
   border-radius: 6px;
   gap: 4px;

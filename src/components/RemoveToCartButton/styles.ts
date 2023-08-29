@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const SecondaryButtonContainer = styled.button`
+export const RemoveToCartButtonContainer = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,8 @@ export const SecondaryButtonContainer = styled.button`
   border-radius: 6px;
 
   background: ${props => props.theme.colors['base-button']};
+
+  color: ${props => props.theme.colors['base-text']};
   
   font-style: normal;
   text-transform: uppercase;
