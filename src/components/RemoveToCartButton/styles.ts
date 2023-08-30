@@ -6,7 +6,8 @@ export const RemoveToCartButtonContainer = styled.button`
   align-items: center;
   flex-shrink: 0;
 
-  height: 32px;
+  height: 3.2rem;
+  max-width: 9.1rem;
   padding: 0px 8px;
   gap: 4px;
   border-radius: 6px;

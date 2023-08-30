@@ -9,7 +9,7 @@ export const PrimaryButtonContainer = styled.button`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  min-width: 13.2rem;
+  max-width: 15rem;
   padding: 12px 8px;
   border-radius: 6px;
   gap: 4px;
