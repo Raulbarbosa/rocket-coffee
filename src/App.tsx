@@ -11,12 +11,14 @@ import { AmountInput } from './components/AmountInput'
 import { CoffeeCard } from './components/CoffeeCard'
 import { CoffeeAltCard } from './components/CoffeeAltCard'
 import { InputText } from './components/InputText'
+import { Header } from './components/Header'
 
 function App() {
 
   return (
     <BrowserRouter>
       <ThemeProvider theme={defaultTheme}>
+        <Header />
         <PrimaryButton />
         <RemoveToCartButton />
         <AddToCartButton />
@@ -24,7 +26,7 @@ function App() {
         <AmountInput />
         <CoffeeCard />
         <CoffeeAltCard />
-        <InputText />
+        <InputText optional />
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>
