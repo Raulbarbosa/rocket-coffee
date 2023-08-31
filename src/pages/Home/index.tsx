@@ -1,5 +1,10 @@
+import { Presentation } from "./components/Presentation";
+
 export function Home() {
   return (
-    <h1>Home</h1>
+    <>
+      <Presentation />
+
+    </>
   )
 } 
