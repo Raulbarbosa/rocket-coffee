@@ -8,10 +8,12 @@ export function Header() {
     <HeaderContainer>
       <Logo src={CoffeeLogo} />
       <HeaderInfo>
-        <Location>
-          <MapPin size={22} weight="fill" />
-          Porto Alegre, RS
-        </Location>
+        {
+          <Location>
+            <MapPin size={22} weight="fill" />
+            Porto Alegre, RS
+          </Location>
+        }
         <StatusCart />
       </HeaderInfo>
     </HeaderContainer>

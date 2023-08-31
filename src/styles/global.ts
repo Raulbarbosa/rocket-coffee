@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
       background: ${(props) => props.theme.colors['background']};
       color: ${props => props.theme.colors['base-text']};
       font-family: 'Roboto', sans-serif;
+      max-width: 100vw;
     }
 
     html {
