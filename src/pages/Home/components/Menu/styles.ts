@@ -5,7 +5,6 @@ export const MenuContainer = styled.div`
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 
   gap: 4rem 3.2rem;
   margin-bottom: 16rem;

@@ -1,25 +1,36 @@
-import { CoffeeCardContainer, CoffeeCount, CoffeeDescription, CoffeeName, CoffeePhoto, CoffeePrice, CoffeeStyle, Counts } from "./styles";
-import American from './../../assets/american.png'
+import { CoffeeCardContainer, CoffeeCount, CoffeeDescription, CoffeeName, CoffeePhoto, CoffeePrice, CoffeeStyle, CoffeeStyleContainer, Counts } from "./styles";
 import { AmountInput } from "../AmountInput";
 import { AddToCartButton } from "../AddToCartButton";
 
-export function CoffeeCard() {
+import { Coffee } from "../../interface";
+
+export function CoffeeCard({ image, description, price, name, type, id }: Coffee) {
+  console.log(type);
+
   return (
     <CoffeeCardContainer>
-      <CoffeePhoto src={American} />
-      <CoffeeStyle>
-        <span>
-          Tradicional
-        </span>
-      </CoffeeStyle>
+      <CoffeePhoto src={image} />
+      <CoffeeStyleContainer>
+        {
+          type.map(item => {
+            return (
+              <CoffeeStyle key={id + name}>
+                <span>
+                  {item}
+                </span>
+              </CoffeeStyle>
+            )
+          })
+        }
+      </CoffeeStyleContainer>
       <CoffeeName>
-        Expresso Tradicional
+        {name}
       </CoffeeName>
       <CoffeeDescription>
-        O tradicional café feito com água quente e grãos moídos
+        {description}
       </CoffeeDescription>
       <CoffeeCount>
-        <CoffeePrice>9,99</CoffeePrice>
+        <CoffeePrice>{price}</CoffeePrice>
         <Counts>
           <AmountInput />
           <AddToCartButton />

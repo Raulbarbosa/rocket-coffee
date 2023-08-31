@@ -24,6 +24,12 @@ export const CoffeePhoto = styled.img`
 
 `
 
+export const CoffeeStyleContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+`
+
 export const CoffeeStyle = styled.div`
   display: flex;
   justify-content: center;
