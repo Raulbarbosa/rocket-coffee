@@ -8,4 +8,6 @@ export const LayoutContainer = styled.div`
     max-width: 100vw;
     width: 100vw;
 
+    padding: 0 16rem;
+
 `

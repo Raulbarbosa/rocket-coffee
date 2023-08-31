@@ -7,6 +7,8 @@ export const AddToCartButtonContainer = styled.button`
   align-items: center;
   border-radius: 6px;
 
+  max-width: 38px;
+
   background: ${props => props.theme.colors['purple-dark']};
 
   &:hover {
