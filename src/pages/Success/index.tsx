@@ -1,7 +1,6 @@
 import { AddToCartButton } from "../../components/AddToCartButton";
 import { AmountInput } from "../../components/AmountInput";
 import { CoffeeAltCard } from "../../components/CoffeeAltCard";
-import { CoffeeCard } from "../../components/CoffeeCard";
 import { InputText } from "../../components/InputText";
 import { PrimaryButton } from "../../components/PrimaryButton";
 import { RemoveToCartButton } from "../../components/RemoveToCartButton";
@@ -16,7 +15,6 @@ export function Success() {
       <AddToCartButton />
       <StatusCart />
       <AmountInput />
-      <CoffeeCard />
       <CoffeeAltCard />
       <InputText optional />
     </>
