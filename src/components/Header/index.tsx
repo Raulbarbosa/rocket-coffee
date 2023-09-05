@@ -1,7 +1,7 @@
-import { HeaderContainer, HeaderInfo, Location, Logo } from "./styles";
+import { MapPin } from "phosphor-react";
 import CoffeeLogo from '../../assets/Logo.png';
 import { StatusCart } from "../StatusCart";
-import { MapPin } from "phosphor-react";
+import { HeaderContainer, HeaderInfo, Location, Logo } from "./styles";
 
 export function Header() {
   return (

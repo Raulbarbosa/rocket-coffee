@@ -21,7 +21,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional'],
     description: 'O tradicional café feito com água quente e grãos moídos',
-    image: Simple
+    image: Simple,
+    unit: 0
   },
   {
     id: '10a3dc6c-366d-431a-a648-d812694c7965',
@@ -29,7 +30,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional'],
     description: 'Expresso diluído, menos intenso que o tradicional',
-    image: American
+    image: American,
+    unit: 0
   },
   {
     id: '24f5ede2-dd89-4880-bdf4-ae8c43ee87bc',
@@ -37,7 +39,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional'],
     description: 'Café expresso tradicional com espuma cremosa',
-    image: Creamy
+    image: Creamy,
+    unit: 0
   },
   {
     id: 'c7a173e7-9636-45d2-bb63-ac9846810c9a',
@@ -45,7 +48,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional', 'gelado'],
     description: 'Bebida preparada com café expresso e cubos de gelo',
-    image: Iced
+    image: Iced,
+    unit: 0
   },
   {
     id: '847daecf-8c2a-45b8-b019-8943c8789fc8',
@@ -53,7 +57,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional', 'com Leite'],
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
-    image: MilkCoffe
+    image: MilkCoffe,
+    unit: 0
   },
   {
     id: 'ff6c218d-62f4-49fe-b79a-8d923dce6b4c',
@@ -61,7 +66,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional', 'com leite'],
     description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    image: Latte
+    image: Latte,
+    unit: 0
   },
   {
     id: '979b016b-c2a1-46f9-9c32-e33986462d57',
@@ -69,7 +75,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional', 'com leite'],
     description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
-    image: Capuccino
+    image: Capuccino,
+    unit: 0
   },
   {
     id: '14f834ef-ef85-4bfe-9902-8ad34714d4c1',
@@ -77,7 +84,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional', 'com leite'],
     description: 'Café expresso misturado com um pouco de leite quente e espuma',
-    image: Macchiato
+    image: Macchiato,
+    unit: 0
   },
   {
     id: '2cb407dc-ce15-4a7d-812f-428562654f0f',
@@ -85,7 +93,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['tradicional', 'com leite'],
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    image: Mocaccino
+    image: Mocaccino,
+    unit: 0
   },
   {
     id: 'e0e4ddc1-5879-447a-b76d-891dfc17227a',
@@ -93,7 +102,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['especial', 'com leite'],
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
-    image: Chocolate
+    image: Chocolate,
+    unit: 0
   },
   {
     id: 'd54e652e-2347-4ae9-8022-7f205467e901',
@@ -101,7 +111,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['especial', 'alcoólico', 'gelado'],
     description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    image: Cuban
+    image: Cuban,
+    unit: 0
   },
   {
     id: '6b8c3b24-0015-4c70-8ae2-3d2c0c640939',
@@ -109,7 +120,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['especial'],
     description: 'Bebida adocicada preparada com café e leite de coco',
-    image: Hawai
+    image: Hawai,
+    unit: 0
   },
   {
     id: '1c356616-794f-440a-9d0d-c5c5c8d0dc1a',
@@ -117,7 +129,8 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['especial'],
     description: 'Bebida preparada com grãos de café árabe e especiarias',
-    image: Arabian
+    image: Arabian,
+    unit: 0
   },
   {
     id: 'bc608ba8-32e4-4bdf-aa8b-5d3a72455f00',
@@ -125,6 +138,7 @@ export const coffees: Coffee[] = [
     price: '9,90',
     type: ['especial', 'alcoólico'],
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    image: Irish
+    image: Irish,
+    unit: 0
   },
 ]

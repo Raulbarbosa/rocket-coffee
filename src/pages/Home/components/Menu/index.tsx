@@ -4,8 +4,6 @@ import { MenuContainer } from "./styles";
 import { coffees } from '../../../../coffee'
 
 export function Menu() {
-  console.log(coffees);
-
 
   return (
     <MenuContainer>

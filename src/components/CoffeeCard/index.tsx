@@ -1,11 +1,12 @@
-import { CoffeeCardContainer, CoffeeCount, CoffeeDescription, CoffeeName, CoffeePhoto, CoffeePrice, CoffeeStyle, CoffeeStyleContainer, Counts } from "./styles";
-import { AmountInput } from "../AmountInput";
 import { AddToCartButton } from "../AddToCartButton";
+import { AmountInput } from "../AmountInput";
+import { CoffeeCardContainer, CoffeeCount, CoffeeDescription, CoffeeName, CoffeePhoto, CoffeePrice, CoffeeStyle, CoffeeStyleContainer, Counts } from "./styles";
 
 import { Coffee } from "../../interface";
 
 export function CoffeeCard({ image, description, price, name, type, id }: Coffee) {
-  console.log(type);
+
+
 
   return (
     <CoffeeCardContainer>
@@ -14,7 +15,7 @@ export function CoffeeCard({ image, description, price, name, type, id }: Coffee
         {
           type.map(item => {
             return (
-              <CoffeeStyle key={id + name}>
+              <CoffeeStyle key={id + item}>
                 <span>
                   {item}
                 </span>
@@ -32,7 +33,7 @@ export function CoffeeCard({ image, description, price, name, type, id }: Coffee
       <CoffeeCount>
         <CoffeePrice>{price}</CoffeePrice>
         <Counts>
-          <AmountInput />
+          <AmountInput identifier={id} />
           <AddToCartButton />
         </Counts>
       </CoffeeCount>

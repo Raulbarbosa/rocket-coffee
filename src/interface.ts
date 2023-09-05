@@ -16,3 +16,8 @@ export interface Address {
   number: number,
   addition?: string
 }
+
+export interface CartItem {
+  id: string | undefined
+  unit: number | undefined
+}

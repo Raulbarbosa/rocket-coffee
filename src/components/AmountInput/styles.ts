@@ -14,6 +14,16 @@ export const AmountInputContainer = styled.div`
 
   background: ${props => props.theme.colors['base-button']};
 
+  span {
+    color: ${props => props.theme.colors['base-title']};
+        /* Text/Regular M */
+    font-family: 'Roboto';
+    font-size: ${props => props.theme.fonts.roboto["text-m"].fontSize};
+    font-style: normal;
+    font-weight: ${props => props.theme.fonts.roboto["text-m"].fontWeight};
+    line-height: ${props => props.theme.fonts.roboto["text-m"].lineHeight};
+  }
+
   svg {
     color: ${props => props.theme.colors['purple']};
     transition: color 0.3s ease;

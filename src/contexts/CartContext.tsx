@@ -1,12 +1,13 @@
-import { ReactNode, createContext, useReducer } from "react"
-import { Coffee } from "../interface"
+import { ReactNode, createContext, useEffect, useReducer } from "react"
+import { updateCartAction } from "../reducers/cart/actions"
 import { cartReducer } from "../reducers/cart/reducer"
-import { incrementCoffeeAction } from "../reducers/cart/actions"
+import { CartItem } from "../interface"
 
 interface CartContextType {
-  cart: Coffee[]
+  cart: CartItem[]
 
-  addCoffee: (data: Coffee) => void
+  updateCart: (item: CartItem) => void
+
   // removeCoffee: () => void
   // cleanCart: () => void
 }
@@ -24,19 +25,21 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     (initialState) => {
       return initialState
     }
-
   )
 
   const { cart } = cartState;
 
-  function addCoffee(data: Coffee) {
-    dispatch(incrementCoffeeAction(data))
+  function updateCart(data: CartItem) {
+    dispatch(updateCartAction(data))
   }
+
+  useEffect(() => {
+  }, [cartState])
 
   return (
     <CartContext.Provider value={{
       cart,
-      addCoffee
+      updateCart
     }}
     >
       {children}

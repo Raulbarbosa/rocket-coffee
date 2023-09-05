@@ -1,17 +1,17 @@
-import { Coffee } from "../../interface";
+import { CartItem } from "../../interface";
 
 export enum ActionTypes {
-  INCREMENT_COFFEE = 'INCREMENT_COFFEE',
+  UPDATE_CART = 'UPDATE_CART',
   REMOVE_COFFEE = 'REMOVE_COFFEE',
-  CLEAN_CART = 'CLEAN_CART',
-  DECREMENT_COFFEE = 'DECREMENT_COFFEE'
+  CLEAN_CART = 'CLEAN_CART'
 }
 
-export function incrementCoffeeAction(coffee: Coffee) {
+export function updateCartAction(item: CartItem) {
+
   return {
-    type: ActionTypes.INCREMENT_COFFEE,
+    type: ActionTypes.UPDATE_CART,
     payload: {
-      coffee
+      item
     }
   }
 }
@@ -25,11 +25,5 @@ export function incrementCoffeeAction(coffee: Coffee) {
 // export function cleanCartAction() {
 //   return {
 //     type: ActionTypes.CLEAN_CART
-//   }
-// }
-
-// export function decrementCoffeeAction() {
-//   return {
-//     type: ActionTypes.DECREMENT_COFFEE
 //   }
 // }

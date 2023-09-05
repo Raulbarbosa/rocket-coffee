@@ -1,16 +1,23 @@
+import { CartItem } from './../../interface';
 import { produce } from "immer";
-import { Coffee } from "../../interface";
 import { ActionTypes } from "./actions";
 
 interface CartState {
-  cart: Coffee[]
+  cart: CartItem[]
 }
 
 export function cartReducer(state: CartState, action: any) {
+
   switch (action.type) {
-    case ActionTypes.INCREMENT_COFFEE:
+    case ActionTypes.UPDATE_CART:
       return produce(state, (draft) => {
-        draft.cart.push(action.payload.coffee)
+        const itemOnCartIndex = draft.cart.findIndex((item) => item.id === action.payload.item.id);
+
+        if (itemOnCartIndex === -1) {
+          draft.cart.push(action.payload.item);
+        } else {
+          draft.cart[itemOnCartIndex].unit = action.payload.item.unit;
+        }
       })
 
     default:

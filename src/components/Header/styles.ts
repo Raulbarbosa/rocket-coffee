@@ -5,11 +5,16 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
   
   width: calc(100vw - 32rem);
   height: 100px;
 
   padding: 3.2rem 16rem;
+
+  background: ${props => props.theme.colors.background};
 `
 
 export const Logo = styled.img`
