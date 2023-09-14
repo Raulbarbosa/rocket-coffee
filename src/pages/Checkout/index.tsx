@@ -1,6 +1,7 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
 import { AddressArea, AddressPresentation, CheckoutContainer, InputArea, PaymentArea, PaymentAreaPresentation } from "./styles";
 import { InputText } from "../../components/InputText";
+import { MethodPayment } from "./components/MethodPayment";
 
 export function Checkout() {
   return (
@@ -32,6 +33,11 @@ export function Checkout() {
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </div>
           </PaymentAreaPresentation>
+          <div style={{ display: "flex", gap: "1.2rem" }}>
+            <MethodPayment method="credit" />
+            <MethodPayment method="debit" />
+            <MethodPayment method="cash" />
+          </div>
         </PaymentArea>
       </div>
     </CheckoutContainer >

@@ -7,8 +7,6 @@ interface InputTextProps {
 }
 
 export function InputText({ optional = false, label = "Nome", size }: InputTextProps) {
-  console.log(size);
-
   return (
     <InputTextContainer size={size}>
       <InputTextMain placeholder={label} />
