@@ -1,8 +1,16 @@
 import { InputTextContainer, InputTextMain, OptionalLabel } from "./styles";
 
-export function InputText({ optional = false, label = "Nome" }) {
+interface InputTextProps {
+  optional?: boolean
+  label: string
+  size?: number
+}
+
+export function InputText({ optional = false, label = "Nome", size }: InputTextProps) {
+  console.log(size);
+
   return (
-    <InputTextContainer>
+    <InputTextContainer size={size}>
       <InputTextMain placeholder={label} />
       {optional && <OptionalLabel>Opcional</OptionalLabel>}
     </InputTextContainer>

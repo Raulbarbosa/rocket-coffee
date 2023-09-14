@@ -1,8 +1,12 @@
-import { styled } from "styled-components";
+import styled from 'styled-components';
 
-export const InputTextContainer = styled.div`
+interface InputTextContainerProps {
+  size?: number;
+}
+
+export const InputTextContainer = styled.div<InputTextContainerProps>`
   display: flex;
-  width: 434px;
+  width: ${(props) => props.size ? props.size * 10 : 43.4}rem;
 
   position: relative;
 `
@@ -19,7 +23,7 @@ export const InputTextMain = styled.input`
   background: ${props => props.theme.colors['base-input']};
   outline: none;
 
-  color: var(--base-text, #574F4D);
+  color: ${props => props.theme.colors["base-text"]};
   /* Text/Regular S */
   font-family: 'Roboto';
   font-size: ${props => props.theme.fonts.roboto['text-s'].fontSize};
