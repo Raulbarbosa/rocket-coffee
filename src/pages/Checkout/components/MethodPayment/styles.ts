@@ -10,9 +10,10 @@ export const MethodPaymentContainer = styled.div`
 
   position: relative;
 
-  &:hover {
-    cursor: pointer;
-  }
+  input[type="radio"]:hover & {
+     /* background: ${(props) => props.theme.colors["base-hover"]};  */
+    background: red;
+  } 
 
   div {
     display: flex;
@@ -21,14 +22,8 @@ export const MethodPaymentContainer = styled.div`
   }
 
   svg {
-    color: ${props => props.theme.colors["purple"]}
+    color: ${props => props.theme.colors["purple"]};
   }
-
-  input[type="radio"]:checked + & {
-    background: ${props => props.theme.colors["purple-light"]};
-    border: 1px solid ${props => props.theme.colors["purple"]};
-  }
-
 `
 
 export const Radio = styled.input.attrs({ type: 'radio' })`
@@ -39,14 +34,25 @@ export const Radio = styled.input.attrs({ type: 'radio' })`
 
   position: absolute;
 
+  border: 1px solid transparent;
+
   width: 100%;
   height: 100%;
-
   border-radius: 6px;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid ${props => props.theme.colors["purple-dark"]};
+
+    ${MethodPaymentContainer} {
+      background: red;
+    }
+  }
 
   &:checked {
     border: 1px solid ${props => props.theme.colors["purple"]};
   }
+
 `
 
 export const MethodPaymentLabel = styled.span`
@@ -58,4 +64,25 @@ export const MethodPaymentLabel = styled.span`
   text-transform: uppercase;
 
   margin-left: 1.2rem;
-` 
+`
+
+export const Button = styled.button`
+  background: blue;
+  color: white;
+
+  padding: 16px;
+  border-radius: 6px;
+
+  &:hover {
+    background: gray;
+  }
+`;
+
+export const Icon = styled.i`
+  color: white;
+  font-size: 1.5em;
+
+  ${Button}:hover & {
+    color: black;
+  }
+`;
