@@ -1,8 +1,7 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
-import { AddressArea, AddressPresentation, CheckoutContainer, InputArea, PaymentArea, PaymentAreaPresentation } from "./styles";
 import { InputText } from "../../components/InputText";
 import { MethodPayment } from "./components/MethodPayment";
-import { Button, Icon } from "./components/MethodPayment/styles";
+import { AddressArea, AddressPresentation, CheckoutContainer, InputArea, PaymentArea, PaymentAreaPresentation } from "./styles";
 
 export function Checkout() {
   return (
@@ -40,10 +39,6 @@ export function Checkout() {
             <MethodPayment method="cash" />
           </div>
         </PaymentArea>
-        <Button>
-          <Icon>Hello World</Icon>
-        </Button>
-
       </div>
     </CheckoutContainer >
   )

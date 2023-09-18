@@ -1,7 +1,17 @@
 import { styled } from "styled-components";
 
-export const MethodPaymentContainer = styled.div`
-  background: ${props => props.theme.colors["base-button"]};
+interface MethodPaymentContainerProps {
+  ishover: boolean
+  ischecked: boolean
+}
+
+export const MethodPaymentContainer = styled.div<MethodPaymentContainerProps>`
+  background: ${props => props.ishover ?
+    props.theme.colors["base-hover"] :
+    props.ischecked ?
+      props.theme.colors["purple-light"] :
+      props.theme.colors["base-button"]};
+
   color: ${props => props.theme.colors["base-text"]};
   border: 1px solid transparent;
   border-radius: 6px;
@@ -9,11 +19,6 @@ export const MethodPaymentContainer = styled.div`
   padding: 1.6rem;
 
   position: relative;
-
-  input[type="radio"]:hover & {
-     /* background: ${(props) => props.theme.colors["base-hover"]};  */
-    background: red;
-  } 
 
   div {
     display: flex;
@@ -42,11 +47,6 @@ export const Radio = styled.input.attrs({ type: 'radio' })`
 
   &:hover {
     cursor: pointer;
-    border: 1px solid ${props => props.theme.colors["purple-dark"]};
-
-    ${MethodPaymentContainer} {
-      background: red;
-    }
   }
 
   &:checked {
@@ -65,24 +65,3 @@ export const MethodPaymentLabel = styled.span`
 
   margin-left: 1.2rem;
 `
-
-export const Button = styled.button`
-  background: blue;
-  color: white;
-
-  padding: 16px;
-  border-radius: 6px;
-
-  &:hover {
-    background: gray;
-  }
-`;
-
-export const Icon = styled.i`
-  color: white;
-  font-size: 1.5em;
-
-  ${Button}:hover & {
-    color: black;
-  }
-`;
