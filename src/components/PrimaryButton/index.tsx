@@ -1,9 +1,13 @@
 import { PrimaryButtonContainer } from "./styles";
 
-export function PrimaryButton() {
+interface PrimaryButtonProps {
+  title: string
+}
+
+export function PrimaryButton({ title }: PrimaryButtonProps) {
   return (
     <PrimaryButtonContainer>
-      Continuar
+      {title}
     </PrimaryButtonContainer>
   )
 }

@@ -31,7 +31,7 @@ export function CoffeeCard({ image, description, price, name, type, id }: Coffee
         {description}
       </CoffeeDescription>
       <CoffeeCount>
-        <CoffeePrice>{price}</CoffeePrice>
+        <CoffeePrice>{price.replace('.', ',')}</CoffeePrice>
         <Counts>
           <AmountInput identifier={id} />
           <AddToCartButton />

@@ -5,6 +5,28 @@ export const CheckoutContainer = styled.div`
   justify-content: space-between;
 `
 
+export const CheckoutSubContainer = styled.div`
+  display: flex; 
+  gap: 3.2rem;
+`
+
+export const AddressContainer = styled.div`
+  max-width: 64rem;
+`
+
+export const AddressAreaText = styled.h1`
+  color: ${props => props.theme.colors["base-subtitle"]};
+  font-family: 'baloo 2';
+  font-size: ${props => props.theme.fonts.ballo2["title-xs"].fontSize};
+  font-style: normal;
+  font-weight: ${props => props.theme.fonts.ballo2["title-xs"].fontWeight};
+  line-height: ${props => props.theme.fonts.ballo2["title-xs"].lineHeight};
+
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+
+`
+
 export const AddressArea = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,6 +36,7 @@ export const AddressArea = styled.div`
 
   overflow: hidden;
   background: ${props => props.theme.colors["base-card"]};
+
 `
 
 const PresentationBase = styled.div`

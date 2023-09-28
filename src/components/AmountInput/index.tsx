@@ -2,19 +2,26 @@ import { Minus, Plus } from "phosphor-react"
 import { useContext } from "react"
 import { CartContext } from "../../contexts/CartContext"
 import { AmountInputContainer } from "./styles"
+import { useLocation } from "react-router-dom"
 
 interface AmountInputProps {
-  identifier: string
+  identifier: string | undefined
 }
 
 export function AmountInput({ identifier }: AmountInputProps) {
   const { cart, updateCart } = useContext(CartContext);
+  const location = useLocation();
+  const { pathname } = location;
+
+  console.log(pathname);
 
   const item = cart.find(item => item.id === identifier);
 
   const amount = item ? item.unit : 0;
 
   function handlerIncrementAmount() {
+    console.log("Increment");
+
     if (typeof amount === "number") {
       updateCart({
         id: identifier,
@@ -25,7 +32,7 @@ export function AmountInput({ identifier }: AmountInputProps) {
 
   function handlerDecrementAmount() {
     if (typeof amount === "number") {
-      if (amount > 0) {
+      if (amount > 1) {
         updateCart({
           id: identifier,
           unit: amount - 1
