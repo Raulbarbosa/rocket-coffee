@@ -1,6 +1,7 @@
 import { Bank, CreditCard, Money } from 'phosphor-react';
 import { MethodPaymentContainer, MethodPaymentLabel, Radio } from './styles'
-import { useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { PaymentMethod, UserContext } from '../../../../contexts/UserContext';
 
 interface MethodPaymentProps {
   method: "credit" | "debit" | "cash";
@@ -15,6 +16,7 @@ enum Methods {
 export function MethodPayment({ method }: MethodPaymentProps) {
   const [isHover, setIsHover] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const { setPaymentMethod, paymentMethod } = useContext(UserContext);
   const radioRef = useRef<HTMLInputElement>(null);
 
   function handleHover() {
@@ -28,8 +30,13 @@ export function MethodPayment({ method }: MethodPaymentProps) {
   function handleClick() {
     if (radioRef.current !== null) {
       setIsChecked(radioRef.current.checked);
+      const selectedMethod: PaymentMethod = radioRef.current.value as PaymentMethod;
+
+      setPaymentMethod(selectedMethod);
     }
   }
+
+  useEffect(() => { }, [paymentMethod])
 
   return (
     <MethodPaymentContainer
@@ -51,7 +58,7 @@ export function MethodPayment({ method }: MethodPaymentProps) {
               <Bank size={16} /> :
               <Money size={16} />
         }
-        <MethodPaymentLabel> {Methods[method]}</MethodPaymentLabel>
+        <MethodPaymentLabel>{Methods[method]}</MethodPaymentLabel>
       </div>
     </MethodPaymentContainer>
   )

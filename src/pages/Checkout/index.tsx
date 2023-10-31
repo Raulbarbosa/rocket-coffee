@@ -1,5 +1,5 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { InputText } from "../../components/InputText";
 import { CartContext } from "../../contexts/CartContext";
 import { Cart } from "./components/Cart";
@@ -15,9 +15,11 @@ import {
   PaymentArea,
   PaymentAreaPresentation
 } from "./styles";
+// import { UserContext } from "../../contexts/UserContext";
 
 export function Checkout() {
   const { cart } = useContext(CartContext);
+  // const { addressData, paymentMethod, setAddressData, setPaymentMethod } = useContext(UserContext)
 
   return (
     <CheckoutContainer>
@@ -35,13 +37,13 @@ export function Checkout() {
               </div>
             </AddressPresentation>
             <InputArea>
-              <InputText label="CEP" size={2} />
-              <InputText label="Rua" size={5.36} />
-              <InputText label="Número" size={1.76} />
-              <InputText label="Complemento" optional size={3.48} />
-              <InputText label="Bairro" size={1.76} />
-              <InputText label="Cidade" size={2.52} />
-              <InputText label="UF" size={0.6} />
+              <InputText label="CEP" name="zip" size={2} />
+              <InputText label="Rua" name="street" size={5.36} />
+              <InputText label="Número" name="number" size={1.76} />
+              <InputText label="Complemento" name="addition" optional size={3.48} />
+              <InputText label="Bairro" name="district" size={1.76} />
+              <InputText label="Cidade" name="city" size={2.52} />
+              <InputText label="UF" name="state" size={0.6} />
             </InputArea>
           </AddressArea>
           <PaymentArea>

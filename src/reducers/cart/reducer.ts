@@ -16,8 +16,6 @@ export function cartReducer(state: CartState, action: any) {
         if (itemOnCartIndex === -1) {
           draft.cart.push(action.payload.item);
         } else {
-          console.log(draft.cart[itemOnCartIndex].unit);
-
           draft.cart[itemOnCartIndex].unit = action.payload.item.unit;
         }
       })
