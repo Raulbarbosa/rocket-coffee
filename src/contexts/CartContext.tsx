@@ -6,8 +6,6 @@ import { coffees } from "../coffee"
 
 interface CartContextType {
   cart: CartItem[],
-  totalBrute: number,
-  tax: number,
   total: number,
 
   updateCart: (item: CartItem) => void
@@ -23,8 +21,6 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [totalBrute, setTotalBrute] = useState(0);
-  const [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
   const [cartState, dispatch] = useReducer(
     cartReducer,
@@ -38,10 +34,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   function updateCart(data: CartItem) {
     dispatch(updateCartAction(data))
+    calculateValue()
   }
 
   const coffeesOnCart = cart.map((coffee) => {
-    if (coffee && coffee.unit !== undefined && coffee.unit > 0) {
+    if (coffee && coffee.unit !== undefined && coffee.unit >= 0) {
       const coffeeValue = coffees.find(item => {
         if (item.id === coffee.id) {
           return item.price
@@ -52,27 +49,25 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   })
 
+  function calculateValue() {
+    const localTotal = coffeesOnCart.reduce((total: number, coffee) => {
+      return total + Number(coffee?.price) * Number(coffee?.unit)
+    }, 0);
+
+    setTotal(localTotal);
+  }
+
   useEffect(() => {
-
-    const localTotalBrute = coffeesOnCart.reduce((total: number, coffee) => {
-      return total + Number(coffee?.price)
-    }, 0)
-    setTotalBrute(localTotalBrute)
-
-    const localTax = totalBrute * 0.117
-    setTax(localTax)
-
-    const localTotal = totalBrute + tax;
-    setTotal(localTotal)
-
-  }, [cartState, totalBrute, tax, coffeesOnCart, cart, total])
+    function handleUpdateTotal() {
+      calculateValue()
+    }
+    handleUpdateTotal()
+  }, [coffeesOnCart, cart, cartState, setTotal]);
 
   return (
     <CartContext.Provider value={{
       cart,
       updateCart,
-      totalBrute,
-      tax,
       total
     }}
     >

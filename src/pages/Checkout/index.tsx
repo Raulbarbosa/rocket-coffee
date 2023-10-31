@@ -1,5 +1,8 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
+import { useContext, useEffect } from "react";
 import { InputText } from "../../components/InputText";
+import { CartContext } from "../../contexts/CartContext";
+import { Cart } from "./components/Cart";
 import { MethodPayment } from "./components/MethodPayment";
 import {
   AddressArea,
@@ -12,19 +15,9 @@ import {
   PaymentArea,
   PaymentAreaPresentation
 } from "./styles";
-import { Cart } from "./components/Cart";
-import { useContext, useEffect } from "react";
-import { CartContext } from "../../contexts/CartContext";
 
 export function Checkout() {
   const { cart } = useContext(CartContext);
-
-  useEffect(() => {
-
-    console.log(cart);
-
-
-  }, [cart])
 
   return (
     <CheckoutContainer>

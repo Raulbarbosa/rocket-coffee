@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const AddToCartButtonContainer = styled.button`
+export const AddToCartButtonContainer = styled.div`
   display: flex;
   padding: 8px;
   justify-content: center;

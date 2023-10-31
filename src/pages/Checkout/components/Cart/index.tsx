@@ -18,7 +18,7 @@ export function Cart() {
         <div>
           {
             cart.map(coffee => {
-              if (coffee && coffee.unit !== undefined && coffee.unit > 0) {
+              if (coffee && coffee.unit !== undefined && coffee.id) {
                 return (
                   <div key={coffee.id}>
                     <CoffeeAltCard id={coffee.id} />
