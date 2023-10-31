@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const RemoveToCartButtonContainer = styled.button`
+export const RemoveToCartButtonContainer = styled.div`
   display: inline-flex;
   justify-content: center;
   align-items: center;

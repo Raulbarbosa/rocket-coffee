@@ -37,7 +37,7 @@ export function CoffeeAltCard({ id }: CoffeAltCardProps) {
               id={id}
               handler={handlerAmount}
             />
-            <RemoveToCartButton />
+            <RemoveToCartButton id={id} />
           </CoffeeCount>
         </Info>
       </CoffeeGeneralInfo>

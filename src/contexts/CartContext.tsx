@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useEffect, useReducer, useState } from "react"
-import { updateCartAction } from "../reducers/cart/actions"
+import { updateCartAction, removeCoffeeAction } from "../reducers/cart/actions"
 import { cartReducer } from "../reducers/cart/reducer"
 import { CartItem } from "../interface"
 import { coffees } from "../coffee"
@@ -10,7 +10,7 @@ interface CartContextType {
 
   updateCart: (item: CartItem) => void
 
-  // removeCoffee: () => void
+  removeCoffee: (item: string) => void
   // cleanCart: () => void
 }
 
@@ -35,6 +35,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   function updateCart(data: CartItem) {
     dispatch(updateCartAction(data))
     calculateValue()
+  }
+
+  function removeCoffee(data: string) {
+    dispatch(removeCoffeeAction(data))
   }
 
   const coffeesOnCart = cart.map((coffee) => {
@@ -68,6 +72,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     <CartContext.Provider value={{
       cart,
       updateCart,
+      removeCoffee,
       total
     }}
     >
