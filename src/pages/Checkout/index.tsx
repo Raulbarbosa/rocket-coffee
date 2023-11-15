@@ -1,5 +1,5 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { InputText } from "../../components/InputText";
 import { CartContext } from "../../contexts/CartContext";
 import { Cart } from "./components/Cart";
@@ -15,11 +15,14 @@ import {
   PaymentArea,
   PaymentAreaPresentation
 } from "./styles";
-// import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 
 export function Checkout() {
   const { cart } = useContext(CartContext);
-  // const { addressData, paymentMethod, setAddressData, setPaymentMethod } = useContext(UserContext)
+  const { addressData } = useContext(UserContext);
+
+  console.log(addressData);
+
 
   return (
     <CheckoutContainer>
@@ -37,13 +40,13 @@ export function Checkout() {
               </div>
             </AddressPresentation>
             <InputArea>
-              <InputText label="CEP" name="zip" size={2} />
-              <InputText label="Rua" name="street" size={5.36} />
-              <InputText label="Número" name="number" size={1.76} />
-              <InputText label="Complemento" name="addition" optional size={3.48} />
-              <InputText label="Bairro" name="district" size={1.76} />
-              <InputText label="Cidade" name="city" size={2.52} />
-              <InputText label="UF" name="state" size={0.6} />
+              <InputText label="CEP" name="zip" value={addressData.zip} size={2} />
+              <InputText label="Rua" name="street" value={addressData.street} size={5.36} />
+              <InputText label="Número" name="number" value={addressData.number} size={1.76} />
+              <InputText label="Complemento" name="addition" value={addressData.addition} optional size={3.48} />
+              <InputText label="Bairro" name="district" value={addressData.district} size={1.76} />
+              <InputText label="Cidade" name="city" value={addressData.city} size={2.52} />
+              <InputText label="UF" name="state" value={addressData.state} size={0.6} />
             </InputArea>
           </AddressArea>
           <PaymentArea>

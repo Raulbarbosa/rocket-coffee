@@ -36,7 +36,8 @@ export function MethodPayment({ method }: MethodPaymentProps) {
     }
   }
 
-  useEffect(() => { }, [paymentMethod])
+  useEffect(() => {
+  }, [paymentMethod])
 
   return (
     <MethodPaymentContainer
