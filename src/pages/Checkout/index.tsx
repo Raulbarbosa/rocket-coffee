@@ -1,7 +1,9 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
-import { useContext, useEffect } from "react";
+import { FormEvent, useCallback, useContext, useEffect } from "react";
 import { InputText } from "../../components/InputText";
 import { CartContext } from "../../contexts/CartContext";
+import { UserContext } from "../../contexts/UserContext";
+import { cep, number } from "../../utils/masks";
 import { Cart } from "./components/Cart";
 import { MethodPayment } from "./components/MethodPayment";
 import {
@@ -15,13 +17,18 @@ import {
   PaymentArea,
   PaymentAreaPresentation
 } from "./styles";
-import { UserContext } from "../../contexts/UserContext";
 
 export function Checkout() {
   const { cart } = useContext(CartContext);
   const { addressData } = useContext(UserContext);
 
-  console.log(addressData);
+  const handleCEP = useCallback((e: FormEvent<HTMLInputElement>) => {
+    cep(e);
+  }, [])
+
+  const handleNumber = useCallback((e: FormEvent<HTMLInputElement>) => {
+    number(e)
+  }, [])
 
   useEffect(() => {
   }, [addressData])
@@ -42,9 +49,9 @@ export function Checkout() {
               </div>
             </AddressPresentation>
             <InputArea>
-              <InputText label="CEP" name="zip" value={addressData.zip} size={2} />
+              <InputText label="CEP" name="zip" value={addressData.zip} size={2} onKeyUp={handleCEP} />
               <InputText label="Rua" name="street" value={addressData.street} size={5.36} />
-              <InputText label="Número" name="number" value={addressData.number} maxLength={5} size={1.76} />
+              <InputText label="Número" name="number" value={addressData.number} maxLength={5} onKeyUp={handleNumber} size={1.76} />
               <InputText label="Complemento" name="addition" value={addressData.addition} optional size={3.48} />
               <InputText label="Bairro" name="district" value={addressData.district} maxLength={30} size={1.76} />
               <InputText label="Cidade" name="city" value={addressData.city} size={2.52} maxLength={30} />

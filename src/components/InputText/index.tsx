@@ -19,7 +19,6 @@ export function InputText({ optional = false, label = "Nome", size, name, ...res
 
     if (event.target.name === "zip" && event.target.value.length === 9) {
       const address = await getAddress(event.target.value);
-      console.log("oshi", address);
 
       if (address?.status === 200) {
 
@@ -29,11 +28,10 @@ export function InputText({ optional = false, label = "Nome", size, name, ...res
         localAddressData.state = address.data.uf;
         localAddressData.district = address.data.bairro;
         localAddressData.addition = address.data.complemento;
-        console.log("Vish", localAddressData);
 
         setAddressData(localAddressData);
       } else {
-        console.log("Error");
+        console.log("Error")
       }
     } else {
       localAddressData[customTarget] = event.target.value;
