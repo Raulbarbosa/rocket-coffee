@@ -1,4 +1,4 @@
-import { useContext, type ComponentProps } from "react";
+import { useContext, type ComponentProps, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { getAddress } from "../../services/api";
 import { InputTextContainer, InputTextMain, OptionalLabel } from "./styles";
@@ -35,7 +35,7 @@ export function InputText({ optional = false, label = "Nome", size, name, ...res
       }
     } else {
       localAddressData[customTarget] = event.target.value;
-      setAddressData(localAddressData)
+      setAddressData(localAddressData);
     }
   }
 
@@ -44,6 +44,7 @@ export function InputText({ optional = false, label = "Nome", size, name, ...res
       <InputTextMain
         name={name}
         placeholder={label}
+        autoComplete="off"
         disabled={name === "state" || name === "district" || name === "city"}
         {...rest}
         onChange={handleForm}
