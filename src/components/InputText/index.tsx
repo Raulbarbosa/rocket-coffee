@@ -1,7 +1,7 @@
 import { useContext, type ComponentProps } from "react";
-import { InputTextContainer, InputTextMain, OptionalLabel } from "./styles";
 import { UserContext } from "../../contexts/UserContext";
-import { Address } from "../../interface";
+import { getAddress } from "../../services/api";
+import { InputTextContainer, InputTextMain, OptionalLabel } from "./styles";
 
 interface InputTextProps extends ComponentProps<"input"> {
   optional?: boolean
@@ -10,28 +10,46 @@ interface InputTextProps extends ComponentProps<"input"> {
   name: string
 }
 
-interface KeyofAddress extends Address {
-  customTarget: string
-}
-
 export function InputText({ optional = false, label = "Nome", size, name, ...rest }: InputTextProps) {
   const { setAddressData, addressData } = useContext(UserContext);
 
-  function handleForm(event: { target: HTMLInputElement }) {
+  async function handleForm(event: { target: HTMLInputElement }) {
     const localAddressData = { ...addressData };
-    const customTarget = event.target.name as unknown as KeyofAddress;
+    const customTarget = event.target.name;
 
-    if (event.target.name === "zip") {
-      console.log("hello world");
+    if (event.target.name === "zip" && event.target.value.length === 9) {
+      const address = await getAddress(event.target.value);
+      console.log("oshi", address);
 
+      if (address?.status === 200) {
+
+        localAddressData.zip = address.data.cep;
+        localAddressData.city = address.data.localidade;
+        localAddressData.street = address.data.logradouro;
+        localAddressData.state = address.data.uf;
+        localAddressData.district = address.data.bairro;
+        localAddressData.addition = address.data.complemento;
+        console.log("Vish", localAddressData);
+
+        setAddressData(localAddressData);
+      } else {
+        console.log("Error");
+      }
+    } else {
+      localAddressData[customTarget] = event.target.value;
+      setAddressData(localAddressData)
     }
-    localAddressData[customTarget] = event.target.value;
-    setAddressData(localAddressData)
   }
 
   return (
     <InputTextContainer size={size} >
-      <InputTextMain name={name} placeholder={label} {...rest} onChange={handleForm} />
+      <InputTextMain
+        name={name}
+        placeholder={label}
+        disabled={name === "state" || name === "district" || name === "city"}
+        {...rest}
+        onChange={handleForm}
+      />
       {optional && <OptionalLabel>Opcional</OptionalLabel>}
     </InputTextContainer>
   )

@@ -1,5 +1,5 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { InputText } from "../../components/InputText";
 import { CartContext } from "../../contexts/CartContext";
 import { Cart } from "./components/Cart";
@@ -23,6 +23,8 @@ export function Checkout() {
 
   console.log(addressData);
 
+  useEffect(() => {
+  }, [addressData])
 
   return (
     <CheckoutContainer>
@@ -42,11 +44,11 @@ export function Checkout() {
             <InputArea>
               <InputText label="CEP" name="zip" value={addressData.zip} size={2} />
               <InputText label="Rua" name="street" value={addressData.street} size={5.36} />
-              <InputText label="Número" name="number" value={addressData.number} size={1.76} />
+              <InputText label="Número" name="number" value={addressData.number} maxLength={5} size={1.76} />
               <InputText label="Complemento" name="addition" value={addressData.addition} optional size={3.48} />
-              <InputText label="Bairro" name="district" value={addressData.district} size={1.76} />
-              <InputText label="Cidade" name="city" value={addressData.city} size={2.52} />
-              <InputText label="UF" name="state" value={addressData.state} size={0.6} />
+              <InputText label="Bairro" name="district" value={addressData.district} maxLength={30} size={1.76} />
+              <InputText label="Cidade" name="city" value={addressData.city} size={2.52} maxLength={30} />
+              <InputText label="UF" name="state" value={addressData.state} size={0.6} maxLength={2} />
             </InputArea>
           </AddressArea>
           <PaymentArea>
