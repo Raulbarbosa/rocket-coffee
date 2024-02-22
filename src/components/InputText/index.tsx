@@ -1,4 +1,4 @@
-import { useContext, type ComponentProps, useState } from "react";
+import { useContext, type ComponentProps } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { getAddress } from "../../services/api";
 import { InputTextContainer, InputTextMain, OptionalLabel } from "./styles";

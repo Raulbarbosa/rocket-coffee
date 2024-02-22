@@ -5,9 +5,11 @@ import { CartContext } from "../../../../contexts/CartContext";
 import { Divisor } from "../Divisor";
 import { ValuesCart } from "../ValuesCart";
 import { CartArea, CartContainer, CartText } from "./styles";
+import { UserContext } from "../../../../contexts/UserContext";
 
 export function Cart() {
   const { cart } = useContext(CartContext);
+  const { paymentMethod, addressData: { number } } = useContext(UserContext);
 
   return (
     <CartContainer>
@@ -30,7 +32,10 @@ export function Cart() {
           }
         </div>
         <ValuesCart />
-        <PrimaryButton title="Confirmar Pedido" />
+        {
+          paymentMethod && number > 0 &&
+          <PrimaryButton title="Confirmar Pedido" />
+        }
       </CartArea>
     </CartContainer>
   )
