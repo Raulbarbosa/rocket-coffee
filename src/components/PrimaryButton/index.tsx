@@ -2,11 +2,12 @@ import { PrimaryButtonContainer } from "./styles";
 
 interface PrimaryButtonProps {
   title: string
+  cleanCart: () => void
 }
 
-export function PrimaryButton({ title }: PrimaryButtonProps) {
+export function PrimaryButton({ title, cleanCart }: PrimaryButtonProps) {
   return (
-    <PrimaryButtonContainer>
+    <PrimaryButtonContainer onClick={cleanCart}>
       {title}
     </PrimaryButtonContainer>
   )

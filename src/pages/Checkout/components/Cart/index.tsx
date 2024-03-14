@@ -2,14 +2,16 @@ import { useContext } from "react";
 import { CoffeeAltCard } from "../../../../components/CoffeeAltCard";
 import { PrimaryButton } from "../../../../components/PrimaryButton";
 import { CartContext } from "../../../../contexts/CartContext";
+import { UserContext } from "../../../../contexts/UserContext";
 import { Divisor } from "../Divisor";
 import { ValuesCart } from "../ValuesCart";
 import { CartArea, CartContainer, CartText } from "./styles";
-import { UserContext } from "../../../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 export function Cart() {
-  const { cart } = useContext(CartContext);
-  const { paymentMethod, addressData: { number } } = useContext(UserContext);
+  const { cart, cleanCart } = useContext(CartContext);
+  const { paymentMethod, addressData } = useContext(UserContext);
+  const { total } = useContext(CartContext);
 
   return (
     <CartContainer>
@@ -33,8 +35,18 @@ export function Cart() {
         </div>
         <ValuesCart />
         {
-          paymentMethod && number > 0 &&
-          <PrimaryButton title="Confirmar Pedido" />
+          paymentMethod &&
+          total > 0 &&
+          (addressData.number > 0 &&
+            addressData.city &&
+            addressData.street &&
+            addressData.zip &&
+            addressData.district &&
+            addressData.state
+          ) &&
+          <Link to={"/success"}>
+            <PrimaryButton title="Confirmar Pedido" cleanCart={cleanCart} />
+          </Link>
         }
       </CartArea>
     </CartContainer>

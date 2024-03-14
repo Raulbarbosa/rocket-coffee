@@ -25,8 +25,8 @@ export function removeCoffeeAction(item: string) {
   }
 }
 
-// export function cleanCartAction() {
-//   return {
-//     type: ActionTypes.CLEAN_CART
-//   }
-// }
+export function cleanCartAction() {
+  return {
+    type: ActionTypes.CLEAN_CART
+  }
+}

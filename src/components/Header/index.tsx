@@ -1,14 +1,15 @@
 import { MapPin } from "phosphor-react";
+import { Link } from "react-router-dom";
 import CoffeeLogo from '../../assets/Logo.png';
 import { StatusCart } from "../StatusCart";
 import { HeaderContainer, HeaderInfo, Location, Logo } from "./styles";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 export function Header() {
-  const addressData = JSON.parse(localStorage.getItem("userAdressData"));
-
-  useEffect(() => { }, [addressData])
+  const { addressData: { city, state } } = useContext(UserContext);
+  const loadedDataString = localStorage.getItem("userAdressData");
+  const loadedData = loadedDataString ? JSON.parse(loadedDataString) : null;
 
   return (
     <HeaderContainer>
@@ -16,16 +17,22 @@ export function Header() {
         <Logo src={CoffeeLogo} />
       </Link>
       <HeaderInfo>
-        {addressData &&
+        {loadedData && (
           <Location>
             <MapPin size={22} weight="fill" />
-            {addressData.city}, {addressData.state}
+            {loadedData.city}, {loadedData.state}
           </Location>
-        }
+        )}
+        {!loadedData && state && city && (
+          <Location>
+            <MapPin size={22} weight="fill" />
+            {city}, {state}
+          </Location>
+        )}
         <Link to={"/checkout"}>
           <StatusCart />
         </Link>
       </HeaderInfo>
     </HeaderContainer>
-  )
+  );
 }

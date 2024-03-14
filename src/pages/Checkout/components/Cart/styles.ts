@@ -26,5 +26,9 @@ export const CartArea = styled.div`
   background: ${props => props.theme.colors["base-card"]};
 
   border-radius: 6px 44px;
+
+  a {
+    text-decoration: none;
+  }
 `
 

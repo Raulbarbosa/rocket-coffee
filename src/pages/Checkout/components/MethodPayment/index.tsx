@@ -2,15 +2,10 @@ import { Bank, CreditCard, Money } from 'phosphor-react';
 import { MethodPaymentContainer, MethodPaymentLabel, Radio } from './styles'
 import { useContext, useEffect, useRef, useState } from 'react';
 import { PaymentMethod, UserContext } from '../../../../contexts/UserContext';
+import { Methods } from '../../../../enum';
 
 interface MethodPaymentProps {
   method: "credit" | "debit" | "cash";
-}
-
-enum Methods {
-  credit = "Cartão de crédito",
-  debit = "Cartão de débito",
-  cash = "Dinheiro"
 }
 
 export function MethodPayment({ method }: MethodPaymentProps) {
