@@ -1,22 +1,47 @@
-import { CoffeeAltCardContainer, CoffeeCount, CoffeeGeneralInfo, CoffeeName, CoffeePhoto, Info, TotalOfType } from "./styles";
-import Coffee from '../../assets/simple.png'
+import { useContext, useEffect, useState } from "react";
+import { coffees } from "../../coffee";
+import { CartContext } from "../../contexts/CartContext";
 import { AmountInput } from "../AmountInput";
 import { RemoveToCartButton } from "../RemoveToCartButton";
+import { CoffeeAltCardContainer, CoffeeCount, CoffeeGeneralInfo, CoffeeName, CoffeePhoto, Info, TotalOfType } from "./styles";
 
-export function CoffeeAltCard() {
+interface CoffeAltCardProps {
+  id: string
+}
+
+export function CoffeeAltCard({ id }: CoffeAltCardProps) {
+  const [amount, setAmount] = useState(0);
+  const { cart } = useContext(CartContext);
+
+  const coffeeFoundOnCart = cart.find(item => item.id === id);
+
+  const coffeeFoundInCoffeList = coffees.find(coffee => coffee.id === id);
+
+  const totalprice = (Number(coffeeFoundInCoffeList?.price) * Number(coffeeFoundOnCart?.unit)).toFixed(2);
+
+  function handlerAmount(param: number) {
+    setAmount(param)
+  }
+
+  useEffect(() => { }, [cart])
+
   return (
     <CoffeeAltCardContainer>
       <CoffeeGeneralInfo>
-        <CoffeePhoto src={Coffee} />
+        <CoffeePhoto src={coffeeFoundInCoffeList?.image} />
         <Info>
-          <CoffeeName>Expresso Tradicional</CoffeeName>
+          <CoffeeName>{coffeeFoundInCoffeList?.name}</CoffeeName>
           <CoffeeCount>
-            <AmountInput />
-            <RemoveToCartButton />
+            <AmountInput
+              amount={coffeeFoundOnCart?.unit}
+              id={id}
+              handler={handlerAmount}
+            />
+            <RemoveToCartButton id={id} />
           </CoffeeCount>
         </Info>
       </CoffeeGeneralInfo>
-      <TotalOfType>R$ 9,99</TotalOfType>
+      <TotalOfType>R$ {totalprice}</TotalOfType>
     </CoffeeAltCardContainer>
   )
 }

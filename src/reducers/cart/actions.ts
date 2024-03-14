@@ -16,14 +16,17 @@ export function updateCartAction(item: CartItem) {
   }
 }
 
-// export function removeCoffeeAction() {
-//   return {
-//     type: ActionTypes.REMOVE_COFFEE
-//   }
-// }
+export function removeCoffeeAction(item: string) {
+  return {
+    type: ActionTypes.REMOVE_COFFEE,
+    payload: {
+      item
+    }
+  }
+}
 
-// export function cleanCartAction() {
-//   return {
-//     type: ActionTypes.CLEAN_CART
-//   }
-// }
+export function cleanCartAction() {
+  return {
+    type: ActionTypes.CLEAN_CART
+  }
+}

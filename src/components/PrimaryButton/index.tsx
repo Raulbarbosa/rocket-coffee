@@ -1,9 +1,14 @@
 import { PrimaryButtonContainer } from "./styles";
 
-export function PrimaryButton() {
+interface PrimaryButtonProps {
+  title: string
+  cleanCart: () => void
+}
+
+export function PrimaryButton({ title, cleanCart }: PrimaryButtonProps) {
   return (
-    <PrimaryButtonContainer>
-      Continuar
+    <PrimaryButtonContainer onClick={cleanCart}>
+      {title}
     </PrimaryButtonContainer>
   )
 }

@@ -20,6 +20,22 @@ export function cartReducer(state: CartState, action: any) {
         }
       })
 
+    case ActionTypes.REMOVE_COFFEE:
+      return produce(state, (draft) => {
+
+        const itemToRemove = draft.cart.findIndex((item) => item.id === action.payload.item);
+
+        if (itemToRemove !== -1) {
+          draft.cart.splice(itemToRemove, 1);
+        }
+
+      })
+
+    case ActionTypes.CLEAN_CART:
+      return produce(state, (draft) => {
+        draft.cart = [];
+      })
+
     default:
       return state
   }
